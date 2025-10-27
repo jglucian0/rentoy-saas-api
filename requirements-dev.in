@@ -1,0 +1,11 @@
+# Testes
+pytest        # A biblioteca de testes
+pytest-watch  # (Opcional) Roda os testes automaticamente quando você salva um arquivo
+httpx         # Um "navegador" para o Pytest poder chamar sua API
+
+# Qualidade de Código (Linters/Formatters)
+ruff
+black
+
+# Task Runner (Estilo NPM Scripts)
+poethepoet

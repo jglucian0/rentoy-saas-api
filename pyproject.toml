@@ -1,0 +1,46 @@
+[tool.black]
+line-length = 88
+target-version = ['py312'] # Coloque a versão do seu Python
+
+[tool.ruff]
+line-length = 88
+
+# Habilita as regras do Flake8 (F) e do Isort (I)
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+# Exclui pastas que o ruff não precisa olhar
+exclude = [
+    ".git",
+    "__pycache__",
+    "venv",
+]
+
+# Ensina o Ruff (Isort) a reconhecer seu código como "próprio"
+[tool.ruff.lint.isort]
+known-first-party = ["rentoy_saas_api"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"] 
+
+[tool.poe.tasks]
+# Formatação automática
+format = { shell = "black . && ruff check --fix ." }
+
+# Verificação sem alterar arquivos
+lint = { shell = "black --check . && ruff check ." }
+
+# Testes
+test = "pytest"
+
+# Sequência que roda lint + testes
+check = { sequence = ["lint", "test"] }
+
+# Inicializa o servidor web
+dev = "uvicorn src.rentoy_saas_api.main:app --reload"
+
+# Compila novas dependências
+update-deps = { shell = "pip-compile requirements.in && pip-compile requirements-dev.in" }
+
+# Instala novas dependências
+install-deps = { shell = "pip install -r requirements.txt && pip install -r requirements-dev.txt" }

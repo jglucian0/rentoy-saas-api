@@ -1,0 +1,11 @@
+# Framework
+fastapi
+uvicorn[standard] # O servidor que roda o FastAPI
+
+# Banco de Dados (próximas issues)
+sqlalchemy
+alembic
+psycopg2-binary # Driver do Postgres
+
+# Config (para ler o .env)
+python-dotenv
