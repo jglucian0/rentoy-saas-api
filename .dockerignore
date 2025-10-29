@@ -1,0 +1,15 @@
+# Ignora o ambiente virutal
+venv/
+
+# Ignora os cahces do Python
+__pycache__/
+*.pyc
+
+# Ignora caches de teste e configs locais
+.pytest_cache/
+.vscode/
+.env
+
+# Ignora o Git
+.git/
+.gitignore
